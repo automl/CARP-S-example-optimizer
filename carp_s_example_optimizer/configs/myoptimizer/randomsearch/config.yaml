@@ -1,0 +1,6 @@
+# @package _global_
+optimizer_id: RandomSearch
+optimizer_container_id: RandomSearch
+optimizer:
+  _target_: carp_s_example_optimizer.random_search.RandomSearchOptimizer
+  _partial_: true

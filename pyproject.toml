@@ -5,17 +5,9 @@ dependencies = [
   "typing_extensions", # Better typing
   "tomli", 
   "pre-commit", 
-  
-  
-  
-  
-  "hydra-core",
-  "hydra-submitit-launcher",
-  "hydra_colorlog",
-  
-  
-  
-  
+  "numpy",
+  "ConfigSpace>=1.0.0",
+  "carps",
 ]
 
 requires-python = ">=3.12"
