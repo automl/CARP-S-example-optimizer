@@ -24,13 +24,15 @@ pip install -e .
 The command for running the optimizer on a benchmark, e.g., a BBOB function from carps looks as follows:
 ```bash
 # we need to install the BBOB benchmark requirements
-pip install ioh==0.3.14
-python -m carps.run 'hydra.searchpath=[pkg://carp_s_example_optimizer/configs]' +myoptimizer/randomsearch=config +problem/BBOB=cfg_2_12_2_1 seed=1
+python -m carps.build.make benchmark_bbob
+
+# Run the optimizer on the task
+python -m carps.run 'hydra.searchpath=[pkg://carp_s_example_optimizer/configs]' +myoptimizer/randomsearch=config +task/BBOB=cfg_2_12_1 seed=1
 ```
 The breakdown of the command:
 - `'hydra.searchpath=[pkg://carp_s_example_optimizer/configs]'`: Let hydra know where to find the configs of the optimizer package. For this, `carp_s_example_optimizer` needs to be installed. It is in general: pkg://PACKAGE_NAME/PATH_INSIDE_PACKAGE_TO_CONFIGS_FOLDER .
 - `+myoptimizer/randomsearch=config`: select an optimizer from your package. Follows the config folder structure in `carp_s_example_optimizer`. Maybe make sure that config folder names don't overlap with carps.
-- `+problem/BBOB=cfg_2_12_2_1`: Select a problem. Follows the config folder structure in `carps`. Beware, for other benchmarks you need to install dependencies (check the [repo](https://github.com/automl/CARP-S)).
+- `+task/BBOB=cfg_2_12_1`: Select a problem. Follows the config folder structure in `carps`. Beware, for other benchmarks you need to install dependencies (check the [repo](https://github.com/automl/CARP-S)).
 - `seed=1`: Set the seed to 1. 🙂
 
 Of course, you can also specify the run dir etc.
